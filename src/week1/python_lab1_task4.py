@@ -15,24 +15,38 @@ Print formatted summary in main.
 
 def count_characters(text):
     """Count non-space characters in a string."""
-    # TODO: implement
-    pass
+    return len(text.replace(" ", ""))
 
 def count_words(text):
     """Count number of words in a string."""
-    # TODO: implement
-    pass
+    return len(text.split())
 
 def extract_numbers(text):
     """Return list of integers found in text."""
-    # TODO: implement
-    pass
+    numbers = []
+    for word in text.split():
+        if word.isdigit():  # Check if the word is an integer
+            numbers.append(int(word))
+    return numbers
 
 def analyze_text(text):
     """Perform text-based arithmetic analysis."""
-    # TODO: call helper functions and compute total, average, etc.
-    pass
+    char_count = count_characters(text)
+    word_count = count_words(text)
+    nums = extract_numbers(text)
+
+    total = sum(nums) if nums else 0
+    average = total / len(nums) if nums else 0
+
+    return char_count, word_count, nums, total, average
 
 if __name__ == "__main__":
-    # TODO: read input, call analyze_text(), and print results
-    pass
+    sentence = input("Enter a sentence with some numbers: ")
+    char_count, word_count, nums, total, average = analyze_text(sentence)
+
+    print(f"\nAnalysis Results:")
+    print(f"Non-Space Characters: {char_count}")
+    print(f"Word Count: {word_count}")
+    print(f"Numbers Found: {nums}")
+    print(f"Sum of Numbers: {total}")
+    print(f"Average of Numbers: {average:.2f}")

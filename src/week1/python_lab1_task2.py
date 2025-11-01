@@ -7,12 +7,11 @@ Write a function `greet_user(name)` that:
 - returns "Hello, <Name>! Welcome to Python!"
 Ask user for their name and print result.
 """
-
 def greet_user(name):
-    """Return a greeting message after cleaning and capitalizing the name."""
-    # TODO: implement cleaning and formatting
-    pass
 
-if __name__ == "__main__":
-    # TODO: read name from input and print greeting
-    pass
+   edited_name = name.strip().capitalize()
+   return f"Hello {edited_name}. Welcome to python!"
+
+user_name = input("Enter your name: ")
+print(greet_user(user_name))
+    
